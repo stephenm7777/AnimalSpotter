@@ -1,10 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    kotlin("jvm") version "2.0.20"
 }
-group = "org.example"
-version = "1.0-SNAPSHOT"
+
 
 android {
     namespace = "com.example.animalspotter"
@@ -66,6 +64,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation("androidx.navigation:navigation-compose:2.7.0")
 
     // Additional animation graphics dependency
     implementation("androidx.compose.animation:animation-graphics-android:1.7.1")
@@ -83,10 +82,4 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    testImplementation(kotlin("test"))
-
-}
-
-tasks.test {
-    useJUnitPlateform()
 }
