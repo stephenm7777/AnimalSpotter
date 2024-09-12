@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    kotlin("jvm") version "2.0.20"
 }
+group = "org.example"
+version = "1.0-SNAPSHOT"
 
 android {
     namespace = "com.example.animalspotter"
@@ -79,4 +82,11 @@ dependencies {
     // Debug dependencies
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    testImplementation(kotlin("test"))
+
+}
+
+tasks.test {
+    useJUnitPlateform()
 }
