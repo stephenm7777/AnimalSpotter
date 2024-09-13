@@ -65,9 +65,14 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation("androidx.navigation:navigation-compose:2.7.0")
+    implementation ("androidx.compose.material:material")
+    implementation ("androidx.compose.ui:ui-tooling")
+    implementation ("androidx.compose.material:material-icons-core")
+    implementation ("androidx.compose.material:material-icons-extended")
 
     // Additional animation graphics dependency
     implementation("androidx.compose.animation:animation-graphics-android:1.7.1")
+
 
     // Testing dependencies
     testImplementation(libs.junit)
