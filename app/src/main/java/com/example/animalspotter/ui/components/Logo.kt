@@ -21,7 +21,7 @@ fun LogoImage(modifier: Modifier = Modifier) {
     ) {
         Image(
             painter = image,
-            contentDescription = null,
+            contentDescription = "logo",
             modifier = Modifier
                 .size(320.dp)
                 .align(Alignment.Center)
