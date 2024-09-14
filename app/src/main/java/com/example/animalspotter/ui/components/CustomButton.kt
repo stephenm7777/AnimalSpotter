@@ -19,6 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.Image
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.res.painterResource
 import com.example.animalspotter.R
 
@@ -89,13 +91,23 @@ fun HomeButton(navController: NavHostController){
 }
 
 @Composable
-fun SubmitButton(navController: NavHostController) {
+fun SubmitButton(
+    navController: NavHostController,
+    password: String,
+    confirmPassword: String
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
     ) {
         FilledTonalButton(
-            onClick = { navController.navigate("home") },
+            onClick = {
+                if (password == confirmPassword) {
+                    navController.navigate("dashboard")
+                } else {
+                    println("Passwords do not match")
+                }
+            },
             colors = ButtonDefaults.filledTonalButtonColors(
                 containerColor = CustomRed,
                 contentColor = Color.White
@@ -108,6 +120,7 @@ fun SubmitButton(navController: NavHostController) {
         }
     }
 }
+
 
 @Composable
 fun GoogleSignInButton() {

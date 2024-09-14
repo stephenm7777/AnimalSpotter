@@ -18,7 +18,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -26,7 +25,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.animalspotter.ui.components.HomeButton
 import com.example.animalspotter.ui.components.SubmitButton
 import com.example.animalspotter.ui.components.Symbol
 import com.example.animalspotter.ui.theme.CustomRed
@@ -45,7 +43,6 @@ fun SignUp(navController: NavHostController) {
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
 
-    val screenHeight = LocalConfiguration.current.screenHeightDp.dp
     val scrollState = rememberScrollState()
     val focusManager = LocalFocusManager.current
 
@@ -248,7 +245,11 @@ fun SignUp(navController: NavHostController) {
                 }
             }
 
-            SubmitButton(navController = navController)
+            SubmitButton(
+                navController = navController,
+                password = password,
+                confirmPassword= confirmPassword,
+            )
             Text(
                 text = "Already have an account? Log in",
                 style = TextStyle(
